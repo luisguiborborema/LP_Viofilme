@@ -1,0 +1,1608 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #000000;
+    background-color: #f1f1f1; /* Um fundo bem claro */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Header --- */
+header {
+    background-color: #f1f1f1; /* Fundo branco para o header */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header.scrolled {
+    padding: 5px 0; /* Padding menor */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra mais pronunciada */
+}
+
+header.scrolled .logo-img {
+    max-width: 60px; /* Logo menor quando scrollado */
+}
+
+header.scrolled .main-nav ul li a {
+    font-size: 0.85em; /* Texto do menu menor */
+}
+
+header.scrolled .cta-button.header-cta {
+    padding: 5px 15px; /* Botão menor */
+    font-size: 0.8em;
+}
+.logo-img { /* Ajustei para apenas .logo-img se a imagem não estiver dentro de header .logo-img */
+    max-width: 100px; /* Tamanho da logo no header */
+    height: auto;
+    display: block;
+}
+
+/* Navegação Principal */
+.main-nav {
+    flex-grow: 1; /* Ocupa o espaço central */
+    display: flex;
+    justify-content: center; /* Centraliza os itens do menu */
+    align-items: center;
+}
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Espaço entre os itens do menu */
+}
+.main-nav ul li a {
+    text-decoration: none;
+    color: #000000; /* Cor dos links do menu */
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+/* No seu style.css, adicione esta regra */
+.main-nav ul li a.active {
+    color: #458f8e; /* Cor principal para o link ativo */
+    font-weight: 700; /* Mais negrito */
+    border-bottom: 2px solid #458f8e; /* Opcional: um sublinhado para destaque */
+    padding-bottom: 3px; /* Espaçamento para o sublinhado */
+}
+.main-nav ul li a:hover {
+    color: #458f8e; /* Exemplo de cor de hover */
+}
+
+/* Botão CTA no Header */
+.cta-button {
+    display: inline-block;
+    background-color: #458f8e; /* Cor do CTA */
+    color: #000000;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.cta-button:hover {
+    background-color: #3a8a89;
+    transform: translateY(-2px);
+}
+.header-cta {
+    margin-left: 20px; /* Espaçamento à esquerda do botão CTA do header */
+    padding: 10px 20px; /* Botão menor no header */
+    font-size: 0.85em;
+}
+
+/* --- Seção Hero --- */
+.hero {
+     /* Imagem de fundo */
+    background-image: url('logo_sem_fundo.png'); /* SUBSTITUA PELO NOME E CAMINHO DA SUA IMAGEM */
+    background-size: cover; /* Faz a imagem cobrir toda a área, cortando se necessário */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+
+    /* Um fallback de cor caso a imagem não carregue ou para sobrepor sutilmente */
+    background-color: #458f8e; /* Cor principal como fallback */
+
+    /* ... Mantenha as outras propriedades que já existiam aqui ... */
+    color: #f1f1f1; /* Cor do texto no Hero (Secundária) */
+    padding: 100px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px;
+    position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Preto com 40% de opacidade. Ajuste a opacidade (0.1 a 0.9) */
+    z-index: 0; /* Garante que fique atrás do conteúdo, mas acima da imagem */
+}
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique sobre qualquer background visual */
+}
+.hero-intro {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #f1f1f1; /* Branco para contraste */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.hero h1 {
+    font-size: 3.2em; /* Viofilme */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+}
+.hero h2 {
+    font-size: 2em; /* Criamos marketing que vende... */
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    color: #f1f1f1; /* Sub-título */
+}
+.hero-subheadline {
+    font-size: 1.2em; /* Unimos estratégia... */
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    color: #f1f1f1; /* Texto secundário/claro */
+}
+.main-cta { /* Botão CTA principal no Hero */
+    padding: 18px 40px;
+    font-size: 1.3em;
+    background-color: #f1f1f1; /* Cor do CTA */
+    color: #000000;
+}
+/* --- Seção de Dores (Pain Points) --- */
+.pain-points-section {
+    background-color: #f1f1f1; /* Cor de fundo (Secundária) */
+    padding: 80px 20px;
+}
+.pain-points-section h2 {
+    font-size: 2.4em;
+    color: #458f8e; /* Cor do título (Principal) */
+    margin-bottom: 20px;
+}
+.pain-points-section .section-description {
+    font-size: 1.1em;
+    color: #000000; /* Preto para legibilidade */
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+.pain-points-prompt {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #458f8e; /* Principal */
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.pain-points-list-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    text-align: left; /* Alinha o texto da lista à esquerda */
+}
+.pain-points-list-container ul {
+    list-style: none; /* Remove marcadores padrão */
+    padding: 0;
+    margin: 0;
+}
+.pain-points-list-container ul li {
+    font-size: 1.1em;
+    color: #000000; /* Preto para legibilidade */
+    margin-bottom: 15px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 30px; /* Espaço para o ícone */
+}
+.pain-points-list-container ul li:before {
+    content: "•"; /* Marcador de lista personalizado */
+    color: #458f8e; /* Principal */
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-weight: bold;
+}
+.pain-points-conclusion {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #458f8e; /* Principal */
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* --- Estilos para o novo layout da seção "Pain Points" --- */
+
+/* 1. Transforma o container em um layout flexível de duas colunas */
+.pain-points-layout {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    gap: 50px; /* Espaço entre a coluna de texto e a imagem */
+}
+
+/* 2. Define que a coluna de texto ocupará metade do espaço */
+.pain-points-text-content {
+    flex: 1; /* Ocupa o espaço disponível */
+    max-width: 600px;
+}
+
+/* 3. Define que a coluna da imagem ocupará a outra metade */
+.pain-points-image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 4. Estiliza a imagem para ser responsiva e ter um visual agradável */
+.pain-points-image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Bordas arredondadas, como em outras seções */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+/* --- Seção: Onde Estratégia, Criatividade e Performance se Encontram. --- */
+.pillars-intro-section {
+    background-color: #458f8e; /* Cor de fundo (Principal) */
+    padding: 80px 20px;
+    color: #f1f1f1; /* Texto secundário/claro */
+}
+.pillars-intro-section h2 {
+    font-size: 2.4em;
+    color: #f1f1f1; /* Cor do título (Secundária) */
+    margin-bottom: 20px;
+}
+.pillars-intro-section .section-description {
+    font-size: 1.1em;
+    color: #f1f1f1; /* Cor do texto (Secundária) */
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+.pillars-call-to-action {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #f1f1f1; /* CTA */
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.solutions-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #f1f1f1; /* CTA */
+    margin-top: 50px; /* Mais espaço antes do título "soluções" */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* --- Seções de Pilares --- */
+.pillar-section {
+    padding: 80px 20px;
+    background-color: #f1f1f1; /* Fundo claro (Secundária) */
+}
+
+.pillar-section .container {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Espaço entre texto e imagem */
+}
+
+/* Alinhamento de conteúdo: texto à esquerda, imagem à direita */
+.pillar-content-left {
+    flex-direction: row;
+}
+
+/* Alinhamento de conteúdo: imagem à esquerda, texto à direita (para alternar pilares) */
+.pillar-content-right {
+    flex-direction: row-reverse; /* Inverte a ordem para imagem na esquerda */
+}
+
+.pillar-text {
+    flex: 1; /* Ocupa o espaço disponível */
+    max-width: 600px;
+}
+
+.pillar-text h2 {
+    font-size: 2em;
+    color: #458f8e; /* Cor do título (Principal) */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.pillar-text p {
+    font-size: 1em;
+    color: #000000; /* Preto para legibilidade */
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.pillar-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pillar-text ul li {
+    font-size: 1em;
+    color: #000000; /* Preto para legibilidade */
+    margin-bottom: 10px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 25px; /* Espaço para o ícone */
+}
+
+.pillar-text ul li:before {
+    content: "•"; /* Marcador de lista personalizado */
+    color: #458f8e; /* Principal */
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    font-weight: bold;
+}
+
+.pillar-image {
+    flex: 1; /* Ocupa o espaço restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pillar-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Nova Seção: Filosofia (Diferencial) --- */
+.philosophy-section {
+    background-color: #458f8e; /* Cor principal */
+    padding: 80px 20px;
+    color: #f1f1f1;
+}
+
+.philosophy-section h2 {
+    font-size: 2.4em;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.philosophy-section .section-description {
+    font-size: 1.1em;
+    color: #f1f1f1;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.media-day-highlight {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.media-day-highlight h3 {
+    font-size: 1.8em;
+    color: #f1f1f1;
+    margin-bottom: 15px;
+}
+
+.media-day-highlight p {
+    font-size: 1em;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.before-after-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 800px; /* Tamanho do item do carrossel */
+    width: auto;
+    gap: 20px;
+}
+
+.before-image, .after-image {
+    width: calc(50% - 10px);
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.before-image img, .after-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.before-image p, .after-image p {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #458f8e;
+}
+
+/* --- Nova Seção: Processo --- */
+.process-section {
+    background-color: #f1f1f1;
+    padding: 80px 20px;
+}
+
+.process-section h2 {
+    font-size: 2.4em;
+    color: #458f8e;
+    margin-bottom: 20px;
+}
+
+.process-section .section-description {
+    font-size: 1.1em;
+    color: #000000;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.process-flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.process-step {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.process-step i {
+    font-size: 3em;
+    color: #458f8e;
+    margin-bottom: 20px;
+}
+
+.process-step h3 {
+    font-size: 1.4em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.process-step p {
+    font-size: 0.95em;
+    color: #555555;
+    line-height: 1.5;
+}
+.process-arrow {
+    /* Aumente um pouco o tamanho para o ícone */
+    font-size: 3em; /* Ajuste este valor se quiser o ícone maior ou menor */
+    color: #458f8e;
+    align-self: center;
+    margin: 0 10px;
+    /* Se você usava transform: rotate(90deg); para mobile, mantenha-o nas media queries */
+}
+/* --- Seção de Cases --- */
+.cases-section {
+    background-color: #458f8e; /* Cor principal */
+    padding: 80px 20px;
+    color: #f1f1f1;
+}
+
+.cases-section h2 {
+    font-size: 2.4em;
+    color: #f1f1f1;
+    margin-bottom: 50px;
+}
+/* Novo container para o layout Flexbox */
+.cases-section .cases-layout-container {
+    max-width: 1200px; /* Mantém o max-width para o conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    display: flex; /* Habilita Flexbox */
+    align-items: flex-start; /* Alinha o topo dos itens */
+    gap: 50px; /* Espaço entre o texto e os cards */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: space-between; /* Espaça o conteúdo e os cards */
+}
+
+/* Estilos para o conteúdo de introdução (título/descrição) */
+.cases-section .cases-intro-content {
+    flex: 1; /* Permite que ele ocupe espaço */
+    min-width: 300px; /* Largura mínima para o texto */
+    max-width: 400px; /* Largura máxima para o texto */
+    text-align: left; /* Alinha o texto à esquerda */
+    padding-top: 15px; /* Alinha verticalmente com o topo dos cards */
+}
+
+.cases-section .cases-intro-content h2 {
+    font-size: 2.8em;
+    color: #f1f1f1;
+    margin-bottom: 20px; /* Reduzi um pouco a margem inferior */
+}
+
+.cases-grid {
+    flex: 2; /* Permite que os cards ocupem mais espaço */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 700px;
+}
+
+.case-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: left; /* Alinha o texto à esquerda */
+    color: #000000;
+}
+
+.case-item .case-logo {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block; /* Garante que a margem funcione */
+}
+
+.case-item h3 {
+    font-size: 1.5em;
+    color: #458f8e;
+    margin-bottom: 15px;
+}
+
+.case-item p {
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.case-item strong {
+    color: #458f8e;
+}
+
+/* --- Seção de Perguntas Frequentes (FAQ) --- */
+.faq-section {
+    padding: 80px 20px;
+    background-color: #f1f1f1; /* Fundo claro (Secundária) */
+    text-align: center; /* Centraliza o título e a descrição */
+}
+
+.faq-section h2 {
+    margin-bottom: 15px;
+    color: #458f8e; /* Principal */
+}
+
+.faq-section .section-description {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    color: #000000; /* Preto para legibilidade */
+    line-height: 1.6;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    background-color: #ffffff; /* Fundo branco para cada item */
+    border: 1px solid #e0e0e0; /* Borda suave */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    background-color: #f1f1f1; /* Fundo da pergunta (Secundária) */
+    border-bottom: 1px solid #e0e0e0; /* Borda entre pergunta e resposta */
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #e0e0e0; /* Fundo suave no hover */
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.15em;
+    color: #000000; /* Preto */
+}
+
+.faq-toggle-icon {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #458f8e; /* Principal */
+    transition: transform 0.3s ease;
+}
+
+/* Rotação do ícone quando a FAQ está ativa */
+.faq-item.active .faq-toggle-icon {
+    transform: rotate(45deg); /* Gira o '+' para 'x' */
+}
+
+.faq-answer {
+    max-height: 0; /* Essencial para o efeito de esconder */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Transição para altura e padding */
+    padding: 0 20px; /* Padding inicial zero */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Altura máxima suficiente para a maioria das respostas. Ajuste se necessário! */
+    padding: 20px; /* Padding quando ativo */
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #555555; /* Cinza para o texto da resposta */
+    line-height: 1.6;
+}
+
+/* --- Seção CTA Final --- */
+.cta-final-section {
+    background-color: #458f8e; /* Cor principal */
+    padding: 80px 20px;
+    color: #f1f1f1;
+}
+
+.cta-final-section h2 {
+    font-size: 2.8em;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.cta-final-section .section-description {
+    font-size: 1.1em;
+    color: #f1f1f1;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.cta-final-section .main-cta {
+    background-color: #f1f1f1; /* Cor do CTA */
+    color: #000000;
+    padding: 18px 40px;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+.cta-final-section .cta-objection {
+    font-size: 0.95em;
+    color: #f1f1f1;
+    opacity: 0.8;
+}
+/* --- Seção de Formulário de Contato --- */
+.contact-form-section {
+    background-color: #458f8e;
+    padding: 80px 20px;
+    text-align: center;
+}
+/* Cor do título dentro do Form */
+.contact-form-section .contact-intro h2 {
+    font-size: 2.8em;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.contact-form-section .contact-intro .section-description {
+    font-size: 1.1em;
+    color: #f1f1f1;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.contact-form-section .form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: left;
+}
+/* --- ESTILOS PARA VALIDAÇÃO DE FORMULÁRIO --- */
+
+/* Estiliza campos obrigatórios que estão inválidos (vazios) com uma borda vermelha */
+.form-container input:invalid,
+.form-container select:invalid {
+  border-color: #e74c3c; /* Um tom de vermelho para o erro */
+}
+
+/* Opcional: Adiciona uma sombra sutil ao campo inválido quando o usuário clica nele */
+.form-container input:invalid:focus,
+.form-container select:invalid:focus {
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+.contact-form-section form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+
+.contact-form-section .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-section .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.contact-form-section form label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.contact-form-section form input,
+.contact-form-section form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.contact-form-section form .cta-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.1em;
+    padding: 15px 25px;
+    background-color: #458f8e;
+    color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form-section form .cta-button:hover {
+    background-color: #3a8a89;
+    transform: translateY(-2px);
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: #f1f1f1; /* Cor escura para o rodapé */
+    color: #000000;
+    padding: 60px 20px 30px; /* Mais padding superior para o conteúdo */
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha o topo das colunas */
+    max-width: 1200px;
+    margin: 0 auto 40px; /* Centraliza o conteúdo e adiciona margem antes do bottom */
+    flex-wrap: wrap; /* Para quebrar linha em telas pequenas */
+    gap: 40px; /* Espaço entre as colunas em mobile */
+    color: #000000;
+}
+
+.footer-column {
+    flex: 1; /* Permite que as colunas cresçam */
+    min-width: 250px; /* Largura mínima para evitar quebras muito cedo */
+    padding: 0 10px;
+    text-align: left; /* Alinha o texto das colunas à esquerda */
+}
+
+.footer-column h4 {
+    font-size: 1.3rem;
+    color: #000000; /* Títulos das colunas claros */
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px; /* Para a linha decorativa */
+}
+.footer-column h4::before { /* Linha decorativa ACIMA do título */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; /* Alinha no topo do h4 */
+    width: 40px; /* Largura da linha */
+    height: 2px; /* Espessura da linha */
+    background-color: #458f8e; /* Usa sua cor de destaque */
+    border-radius: 1px;
+}
+.footer-phone a {
+    color: #000000; /* Cor normal do texto, use uma variável ou um código de cor como #b0b0b0 */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: color 0.3s ease; /* Transição suave para a cor */
+}
+
+.footer-phone a:hover {
+    color: #25d366; /* Cor desejada no hover --> cor do WhatsApp */
+}
+.footer-email {
+    font-size: 0.95rem;
+    color: #000000; /* Cor padrão do email (texto ao redor do link) */
+    margin-top: 10px;
+}
+
+.footer-email a { /* Estilo do link de email */
+    color: #000000; /* Cor padrão do link de email */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transição suave */
+}
+
+.footer-email a:hover { /* Estilo do link de email no hover */
+    color: #458f8e; /* Muda para a cor de destaque (ciano/turquesa) */
+}
+/*
+.footer-full-width-divider {
+    height: 1px; 
+    background-color: rgba(0, 0, 0, 0.1); 
+    margin-top: 40px; 
+    margin-bottom: 40px; 
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+*/
+
+.footer-logo-img {
+    max-width: 100px; /* Ajuste o tamanho máximo da sua logo no rodapé */
+    height: auto;
+    display: block; /* Garante que a imagem se comporte como um bloco */
+    margin-bottom: 10px; /* Espaço entre o logo e o texto da descrição, se houver */
+    margin-left: -5px; /* Ajuste para alinhar melhor se necessário */
+}
+/* Coluna "Sobre" (seu logo e descrição) */
+.footer-about .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+    position: relative;
+    padding-top: 0;
+}
+.footer-about .footer-logo::before { /* Linha decorativa ACIMA do logo */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #458f8e;
+    border-radius: 1px;
+    display: none; /* Esconde por padrão */
+}
+.footer-about .footer-logo .footer-logo-icon {
+    color: #458f8e;
+    font-size: 1.8rem;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 0;
+    max-width: none;
+}
+
+/* Coluna "Links Rápidos" */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+.footer-links ul li:last-child {
+    margin-bottom: 0;
+}
+.footer-links ul li a {
+    color: #000000; /* Links mais suaves */
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-decoration: none; /* Remove o sublinhado */
+}
+.footer-links ul li a:hover {
+    color: #458f8e; /* Destaque ao hover */
+    text-decoration: none; /* Remove o sublinhado no hover */
+}
+/* Coluna "Conecte-se" */
+.social-icons-footer {
+    display: flex;
+    gap: 20px; /* Espaço entre os ícones */
+    margin-bottom: 20px;
+}
+.social-icons-footer a {
+    font-size: 1.8rem; /* Tamanho dos ícones sociais */
+    color: #000000; /* Cor padrão mais suave */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons-footer a:hover {
+    transform: translateY(-3px); /* Efeito de levantar */
+}
+/* Cores específicas no hover para os ícones sociais do rodapé */
+.social-icons-footer a:hover .fab.fa-instagram {
+    color: #E1306C; /* Cor do Instagram */
+}
+.social-icons-footer a:hover .fab.fa-linkedin-in {
+    color: #0077b5; /* Azul LinkedIn */
+}
+.social-icons-footer a:hover .fas.fa-envelope {
+    color: #458f8e; /* Sua primary-color para Email */
+}
+
+.footer-email {
+    font-size: 0.95rem;
+    color: #000000;
+    margin-top: 10px; /* Espaço após os ícones sociais */
+}
+
+/* Parte Inferior do Rodapé (Copyright) */
+.footer-bottom {
+    margin-top: 5px; /* Espaço entre o conteúdo e a parte de copyright */
+    padding-top: 5px; /* Padding acima da linha divisória */
+    text-align: center;
+}
+.footer-divider{
+    border: rgba(255, 255, 255, 0.1); /* Cor da linha divisória */
+}
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #000000;
+    margin-top: 5px; /* Espaço abaixo da linha */
+    max-width: none;
+}
+.footer-bottom p a {
+    color: #000000; /* Cor normal do texto, use a variável ou um código de cor como #b0b0b0 */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: color 0.3s ease; /* Transição suave para a cor */
+}
+
+.footer-bottom p a:hover {
+    color: #458f8e; /* Cor desejada no hover */
+}
+/* --- Utilidades de Alinhamento de Conteúdo --- */
+.section.align-center {
+    text-align: center;
+}
+
+.section.align-left {
+    text-align: left;
+}
+
+.section.align-left .section-description,
+.section.align-left h2 {
+     max-width: 800px; /* Mantém uma largura de linha legível */
+     margin-left: 0;
+     margin-right: auto;
+}
+
+/* Ajuste para que a descrição também não fique centralizada quando o texto for à esquerda */
+.section.align-left .section-description {
+    text-align: left;
+}
+
+.section.align-right {
+    text-align: right;
+}
+
+.section.align-right .section-description,
+.section.align-right h2 {
+    max-width: 800px; /* Mantém uma largura de linha legível */
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* Ajuste para que a descrição também não fique centralizada quando o texto for à direita */
+.section.align-right .section-description {
+    text-align: right;
+}
+/* Botão de CTA Fixo (Flutuante) */
+.fixed-cta-button {
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 30px; /* Distância do fundo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    background-color: #458f8e; /* Cor do seu CTA */
+    color: #f1f1f1; /* Cor do texto do CTA */
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para destacá-lo */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    display: flex; /* Para centralizar texto se necessário */
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Impede quebra de linha no texto */
+}
+
+.fixed-cta-button:hover {
+    background-color: #3a8a89; /* Cor de hover ligeiramente mais escura */
+    transform: translateX(-50%) translateY(-3px); /* Pequeno efeito de elevação */
+}
+/* Quando o botão deve "parar" */
+.fixed-cta-button.stop-at-faq {
+    position: absolute; /* Altera para posição absoluta */
+    transform: translateX(-50%); /* Mantém o translate para centralizar */
+    /* A propriedade 'bottom' será definida via JavaScript para posicioná-lo no lugar certo */
+}
+/* Estilos do Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica sobre tudo */
+    z-index: 1001; /* Z-index maior que o botão fixo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Adiciona scroll se o conteúdo for muito grande */
+    background-color: rgba(0,0,0,0.6); /* Fundo escuro transparente */
+    display: flex; /* Flexbox para centralizar o conteúdo */
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Inicia invisível */
+    visibility: hidden; /* Esconde o modal */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1; /* Torna o modal visível */
+    visibility: visible; /* Muda a visibilidade para visível */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(20px); /* Inicia com uma leve translação para baixo */
+    animation: fadeInScale 0.3s ease-out; /* Adiciona uma animação */
+    border-radius: 15px; /* Bordas arredondadas */
+}
+.modal.active .modal-content {
+    transform: translateY(0); /* Desliza para a posição final */
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-button {
+    color: #000000;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #458f8e;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    color: #458f8e;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.modal-content form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-content form input[type="text"],
+.modal-content form input[type="email"],
+.modal-content form input[type="tel"],
+.modal-content form input[type="url"],
+.modal-content form select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #000000; /* Cor do Texto */
+}
+.modal-content form select {
+    appearance: none; /* Remove a seta padrão do select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.1L146.2%20202.7%2018.8%2074.5a17.6%2017.6%200%200%200-25.3%2023.2l130.8%20131.7a17.6%2017.6%200%200%200%2025.3%200L287%2092.7a17.6%2017.6%200%200%200%200-23.2z%22%2F%3E%3C%2Fsvg%3E'); /* Adiciona uma seta personalizada */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px; /* Garante espaço para a seta */
+}
+.modal-content form select option {
+    color: #000000; /* Cor do texto das opções */
+    background-color: #f1f1f1; /* Cor de fundo das opções */
+}
+
+.modal-content form select option:first-child {
+    color: #999; /* Cor do placeholder "Selecionar faturamento" */
+}
+.modal-content form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.modal-content form .cta-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.1em;
+    padding: 15px 25px;
+    background-color: #458f8e; /* Cor do CTA */
+    color: #f1f1f1; /* Cor do texto do CTA */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.modal-content form .cta-button:hover {
+    background-color: #3a8a89;
+    transform: translateY(-2px);
+}
+/* --- Barra de CTA Fixo (Flutuante) --- */
+.fixed-cta-bar {
+    position: fixed; /* Fixa a barra na tela */
+    bottom: 20px; /* Alinha na parte inferior da tela */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    max-width: 1000px; /* Limita a largura máxima da barra */
+    width: 90%; 
+    background-color: #000000; /* Fundo escuro, como no exemplo */
+    color: #f1f1f1; /* Cor do texto claro */
+    padding: 15px 20px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3); /* Sombra superior */
+    border-radius: 15px; /* Bordas arredondadas */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo da barra */
+    align-items: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease; /* Para a transição quando ele "parar" */
+}
+
+.fixed-cta-bar .bar-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Espaça logo/texto do botão CTA */
+    align-items: center;
+    gap: 20px; /* Espaço entre os elementos */
+}
+
+.fixed-cta-bar .bar-logo {
+    max-width: 50px; /* Tamanho da logo na barra */
+    height: auto;
+    display: block;
+}
+
+.fixed-cta-bar .bar-text {
+    flex-grow: 1; /* Permite que o texto ocupe o máximo de espaço */
+    margin: 0; /* Remove margem padrão de parágrafo */
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #f1f1f1;
+    white-space: nowrap; /* Tenta manter o texto em uma linha */
+    overflow: hidden; /* Esconde o que exceder */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for cortado */
+}
+
+.fixed-cta-bar .bar-cta-button {
+    /* Reutiliza estilos de cta-button, mas com ajustes para a barra */
+    padding: 10px 20px;
+    font-size: 0.95em;
+    white-space: nowrap; /* Garante que o texto do botão não quebre */
+    background-color: #458f8e; /* Cor do seu CTA */
+    color: #f1f1f1; /* Cor do texto (secundária) */
+    box-shadow: none; /* Sem sombra adicional aqui, já tem na barra principal */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+.fixed-cta-bar .bar-cta-button:hover {
+    background-color: #3a8a89;
+    transform: translateY(-2px);
+}
+/* --- Responsividade Geral --- */
+@media (max-width: 992px) { /* Tablet Landscape */
+    .hero h1 {
+        font-size: 3.5em;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero-subheadline {
+        font-size: 1.2em;
+    }
+    .main-nav ul {
+        gap: 15px;
+    }
+    .process-flow {
+        flex-direction: column;
+    }
+    .process-arrow {
+        transform: rotate(90deg);
+        margin: 20px 0;
+    }
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+    .carousel-item {
+        max-width: 350px;
+    }
+    .cases-section .cases-layout-container {
+        flex-direction: column; /* Empilha o texto e os cards */
+        align-items: center; /* Centraliza os itens empilhados */
+        gap: 40px;
+    }
+    .cases-section .cases-intro-content {
+        max-width: 800px; /* Permite que o texto ocupe mais largura */
+        text-align: center; /* Centraliza o texto quando empilhado */
+    }
+    .cases-grid {
+        max-width: 650px; /* Ajusta a largura máxima do grid de cards */
+    }
+}
+
+@media (max-width: 768px) { /* Tablet Portrait e Mobile */
+    .header-container {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 10px;
+    }
+    .main-nav {
+        order: 2; /* Move o menu para o meio no mobile */
+        width: 100%; /* Ocupa a largura total */
+        justify-content: center; /* Centraliza o menu */
+    }
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .header-left {
+        order: 1; /* Logo no topo */
+        width: 100%;
+        text-align: center;
+    }
+    .header-cta {
+        order: 3; /* Botão no final */
+        margin-left: 0; /* Limpa margem */
+        width: 100%;
+        max-width: 280px; /* Limita largura do botão */
+    }
+
+    .header-left .logo-img{
+        margin: 0 auto !important;
+        display: block !important;
+        max-width: 80px !important;
+    }
+    .logo-img {
+        max-width: 80px; /* Logo menor no mobile */
+    }
+
+    .hero {
+        padding: 80px 20px;
+        min-height: 450px;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    .hero-subheadline {
+        font-size: 1.1em;
+    }
+    .main-cta {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+    .contact-form-section form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    /* --- Responsividade para a Seção de Dores --- */
+    .pain-points-section h2 {
+        font-size: 2.2em;
+    }
+    .pain-points-section .section-description,
+    .pain-points-prompt,
+    .pain-points-conclusion {
+        font-size: 1em;
+        padding: 0 10px; /* Adiciona padding lateral em mobile */
+    }
+    .pain-points-list-container {
+        max-width: 90%; /* Ajusta largura em mobile */
+    }
+    .pain-points-list-container ul li {
+        font-size: 0.95em;
+        padding-left: 25px;
+    }
+    .pain-points-layout {
+        flex-direction: column; /* Empilha as colunas verticalmente */
+    }
+
+    .pain-points-text-content {
+        /* Centraliza os títulos e parágrafos no mobile */
+        text-align: center;
+        margin-bottom: 40px; /* Adiciona espaço entre o texto e a imagem quando empilhados */
+    }
+
+    .pain-points-list-container {
+        /* Mantém a lista alinhada à esquerda para melhor legibilidade */
+        text-align: left;
+        max-width: 400px; /* Define uma largura máxima para a lista */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* --- Responsividade para a Seção Pillars Intro --- */
+    .pillars-intro-section h2 {
+        font-size: 2.2em;
+    }
+    .pillars-intro-section .section-description {
+        font-size: 1em;
+        padding: 0 10px;
+    }
+    .pillars-call-to-action {
+        font-size: 1.2em;
+    }
+    .solutions-title {
+        font-size: 2em;
+    }
+    /* --- Responsividade para Seções de Pilares --- */
+    .pillar-section .container {
+        flex-direction: column; /* Empilha texto e imagem no mobile */
+        text-align: center;
+    }
+    .pillar-content-right { /* Remove row-reverse para empilhar normalmente */
+        flex-direction: column;
+    }
+    .pillar-text {
+        max-width: 100%; /* Ocupa largura total */
+        order: 2; /* Texto abaixo da imagem */
+    }
+    .pillar-text h2,
+    .pillar-text p,
+    .pillar-text ul {
+        text-align: center; /* Centraliza texto em mobile */
+        padding: 0 10px; /* Adiciona padding lateral para texto */
+    }
+    .pillar-image {
+        order: 1; /* Imagem acima do texto */
+        margin-bottom: 30px; /* Espaço entre imagem e texto */
+    }
+    .pillar-text ul li {
+        text-align: left; /* Mantém lista alinhada à esquerda mesmo com o h2/p centralizados */
+        padding-left: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%; /* Ajusta largura da lista em mobile */
+    }
+    .pillar-section .container {
+        flex-direction: column; /* Empilha texto e imagem no mobile */
+        text-align: center;
+    }
+    .pillar-content-left { /* No mobile, tanto left quanto right devem empilhar */
+        flex-direction: column;
+    }
+    .process-flow {
+        flex-direction: column;
+    }
+    .process-arrow {
+        transform: rotate(90deg);
+        margin: 20px 0;
+    }
+    .before-after-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+    .carousel-item {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 0;
+    }
+    .before-image, .after-image{
+        width: 100%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-column {
+        min-width: unset;
+        width: 100%;
+        text-align: center;
+    }
+    .footer-column h4::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .social-icons-footer {
+        justify-content: center;
+    }
+    section.align-left,
+    .section.align-right {
+        text-align: center;
+    }
+
+    .section.align-left .section-description,
+    .section.align-left h2,
+    .section.align-right .section-description,
+    .section.align-right h2 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .fixed-cta-button {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px;
+        font-size: 0.9em;
+    }
+    .fixed-cta-button:hover {
+        transform: translateX(-50%) translateY(-3px); /* Pequeno efeito de elevação */
+    }
+    .fixed-cta-bar {
+        bottom: 15px; /* Ajusta a posição da barra fixa */
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
+    .fixed-cta-bar .bar-logo {
+        max-width: 40px;
+    }
+    .fixed-cta-bar .bar-text {
+        font-size: 0.9em;
+    }
+    .fixed-cta-bar .bar-cta-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+    }
+    .cases-section .cases-intro-content h2 {
+        font-size: 2.2em;
+    }
+    .cases-grid {
+        grid-template-columns: 1fr; /* Um card por linha */
+        max-width: 400px; /* Limita a largura dos cards em mobile */
+        margin: 0 auto; /* Centraliza o grid */
+    }
+}
+
+@media (max-width: 480px) { /* Mobile Pequeno */
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero h2 {
+        font-size: 1.5em;
+    }
+    .hero-subheadline {
+        font-size: 0.9em;
+    }
+    .main-cta {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .fixed-cta-bar {
+        bottom: 10px; /* Margem ainda menor em celulares */
+        padding: 10px;
+        border-radius: 8px; /* Arredondamento menor ainda */
+    }
+    .fixed-cta-button {
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 18px;
+        font-size: 0.85em;
+    }
+    .fixed-cta-button:hover {
+        transform: translateX(-50%) translateY(-3px); /* Pequeno efeito de elevação */
+    }
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+    }
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+    .modal-content form input,
+    .modal-content form textarea,
+    .modal-content form select,
+    .modal-content form .cta-button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .fixed-cta-bar .bar-content {
+        flex-direction: column; /* Empilha logo/texto e botão em telas menores */
+        text-align: center;
+        gap: 10px;
+    }
+    .fixed-cta-bar .bar-text {
+        font-size: 0.85em;
+        white-space: normal; /* Permite quebra de linha em mobile */
+        text-overflow: unset;
+    }
+    .fixed-cta-bar .bar-cta-button {
+        width: 100%; /* Botão ocupa largura total */
+        max-width: 250px; /* Limita o tamanho máximo */
+    }
+}
