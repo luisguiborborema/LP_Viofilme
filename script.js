@@ -144,14 +144,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Funcionalidade do Acordeão (FAQ) ---
     const faqQuestions = document.querySelectorAll('.faq-question');
+    
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
-            const faqItem = question.closest('.faq-item');
-            const isActive = faqItem.classList.contains('active');
-            document.querySelectorAll('.faq-item.active').forEach(item => {
-                if (item !== faqItem) item.classList.remove('active');
+            const clickedItem = question.closest('.faq-item');
+    
+            // Fecha todos os outros itens que não são o que foi clicado
+            document.querySelectorAll('.faq-item.active').forEach(openItem => {
+                if (openItem !== clickedItem) {
+                    openItem.classList.remove('active');
+                }
             });
-            if (!isActive) faqItem.classList.add('active');
+    
+            // Agora, alterna a classe 'active' no item que foi clicado.
+            // Se estiver aberto, ele fecha. Se estiver fechado, ele abre.
+            clickedItem.classList.toggle('active');
         });
     });
 
