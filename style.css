@@ -1,18 +1,11 @@
-/* ================================================================
-  ARQUIVO CSS ATUALIZADO (v5)
-  ================================================================
-  Nesta versão (v5):
-  - Padding da seção .hero ajustado para 5px 20px.
-  - Padding vertical de TODAS as outras seções principais
-    reduzido de 64px para 30px, criando um layout mais compacto.
-  ================================================================
-*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     line-height: 1.6;
     color: #000000;
     background-color: #f1f1f1;
@@ -467,7 +460,7 @@ header.scrolled .cta-button.header-cta {
     color: #458f8e;
 }
 
-/* --- Nova Seção: Processo --- */
+/* --- Seção Processo (SEM SETAS) --- */
 .process-section {
     background-color: #f1f1f1;
 }
@@ -485,24 +478,29 @@ header.scrolled .cta-button.header-cta {
     margin: 0 auto 60px auto;
 }
 
+/* CONTAINER PRINCIPAL DO FLUXO */
 .process-flow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
     gap: 30px;
+    grid-template-columns: 1fr;
+    align-items: stretch;
 }
 
+/* Escondemos as setas originais do HTML (redundante, mas seguro) */
+.process-flow .process-arrow {
+    display: none;
+}
+
+/* ESTILO DOS CARDS */
 .process-step {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 30px 20px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    flex: 1;
-    min-width: 200px;
-    max-width: 250px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .process-step:hover {
@@ -521,17 +519,31 @@ header.scrolled .cta-button.header-cta {
     color: #000000;
     margin-bottom: 10px;
 }
+
 .process-step p {
     font-size: 0.95em;
     color: #555555;
     line-height: 1.5;
+    margin-top: auto;
 }
-.process-arrow {
-    font-size: 3em;
-    color: #458f8e;
-    align-self: center;
-    margin: 0 10px;
+
+/* --- AJUSTES DE RESPONSIVIDADE (TABLET E DESKTOP) --- */
+
+/* Para Tablets (telas com 768px de largura ou mais) */
+@media (min-width: 768px) {
+    .process-flow {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
+
+/* Para Desktops (telas com 992px de largura ou mais) */
+@media (min-width: 992px) {
+    .process-flow {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
 /* --- Seção de Cases --- */
 .cases-section {
     background-color: #458f8e;
@@ -1003,35 +1015,62 @@ header.scrolled .cta-button.header-cta {
     text-align: right;
 }
 /* Botão de CTA Fixo (Flutuante) */
-.fixed-cta-button {
+/* Estilos Padrão (Mobile-First) */
+.fixed-cta-bar {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #458f8e;
+    width: auto; /* Largura se ajusta ao conteúdo no mobile */
+    background-color: #000000;
     color: #f1f1f1;
-    padding: 15px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    padding: 10px 15px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+    border-radius: 15px;
     z-index: 1000;
     display: flex;
-    align-items: center;
     justify-content: center;
-    white-space: nowrap;
+    align-items: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, width 0.4s ease;
 }
 
-.fixed-cta-button:hover {
+.fixed-cta-bar .bar-content {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Itens centralizados no mobile */
+    align-items: center;
+    gap: 15px; /* Espaço entre o logo e o botão */
+}
+
+.fixed-cta-bar .bar-logo {
+    max-width: 45px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Oculta o texto por padrão para manter o layout compacto no mobile */
+.fixed-cta-bar .bar-text {
+    display: none;
+}
+
+.fixed-cta-bar .bar-cta-button {
+    padding: 8px 18px;
+    font-size: 0.9em;
+    white-space: nowrap;
+    background-color: #458f8e;
+    color: #f1f1f1; /* Corrigido para branco para melhor contraste */
+    box-shadow: none;
+    border-radius: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.fixed-cta-bar .bar-cta-button:hover {
     background-color: #3a8a89;
-    transform: translateX(-50%) translateY(-3px);
+    transform: translateY(-2px);
 }
-.fixed-cta-button.stop-at-faq {
-    position: absolute;
-    transform: translateX(-50%);
-}
+
 /* Estilos do Modal */
 .modal {
     display: none;
@@ -1058,7 +1097,7 @@ header.scrolled .cta-button.header-cta {
 
 .modal-content {
     background-color: #fff;
-    padding: 30px;
+    padding: 30px 20px; 
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     width: 90%;
@@ -1119,7 +1158,7 @@ header.scrolled .cta-button.header-cta {
 .modal-content form input[type="tel"],
 .modal-content form input[type="url"],
 .modal-content form select {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
@@ -1168,70 +1207,64 @@ header.scrolled .cta-button.header-cta {
     transform: translateY(-2px);
 }
 /* --- Barra de CTA Fixo (Flutuante) --- */
+/* Estilos Padrão (Mobile-First): Layout compacto com logo e botão. */
 .fixed-cta-bar {
     position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1000px;
-    width: 90%; 
+    width: auto; /* Largura automática para se ajustar ao conteúdo */
     background-color: #000000;
     color: #f1f1f1;
-    padding: 15px 20px;
+    padding: 10px 15px;
     box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
     border-radius: 15px;
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, width 0.4s ease;
 }
-
 .fixed-cta-bar .bar-content {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* Espaço entre o logo e o botão no mobile */
 }
-
 .fixed-cta-bar .bar-logo {
-    max-width: 50px;
+    max-width: 45px;
     height: auto;
     display: block;
+    flex-shrink: 0;
 }
-
+/* Oculta o texto no mobile para um visual limpo */
 .fixed-cta-bar .bar-text {
-    flex-grow: 1;
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #f1f1f1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: none;
 }
-
 .fixed-cta-bar .bar-cta-button {
-    padding: 10px 20px;
-    font-size: 0.95em;
+    padding: 8px 18px;
+    font-size: 0.9em;
     white-space: nowrap;
     background-color: #458f8e;
     color: #f1f1f1;
     box-shadow: none;
     border-radius: 10px;
+    flex-shrink: 0;
+    text-decoration: none;
 }
 .fixed-cta-bar .bar-cta-button:hover {
     background-color: #3a8a89;
     transform: translateY(-2px);
 }
+
 /* --- Responsividade Geral --- */
-@media (max-width: 992px) { /* Tablet Landscape */
+@media (min-width: 992px) { /* Tablet Landscape */
     .hero h1 {
-        font-size: 3.5em;
+        font-size: 2.8em;
     }
     .hero h2 {
-        font-size: 2em;
+        font-size: 1.6em;
     }
     .hero-subheadline {
         font-size: 1.2em;
@@ -1239,20 +1272,88 @@ header.scrolled .cta-button.header-cta {
     .main-nav ul {
         gap: 15px;
     }
-    .process-flow {
-        flex-direction: column;
-    }
-    .process-arrow {
-        transform: rotate(90deg);
-        margin: 20px 0;
-    }
+    
     .cases-grid {
         grid-template-columns: 1fr;
     }
     .carousel-item {
         max-width: 350px;
     }
+        /* A barra ocupa uma largura maior no desktop */
+    .fixed-cta-bar {
+        width: 90%;
+        max-width: 960px;
+    }
 
+    .fixed-cta-bar .bar-content {
+        /* Apenas garante o alinhamento vertical e o espaço entre os itens */
+        align-items: center;
+        gap: 20px; /* Define um espaço entre logo/texto e texto/botão */
+    }
+
+    /* O logo não precisa de margem especial */
+    .fixed-cta-bar .bar-logo {
+        max-width: 50px;
+    }
+    
+    /* Exibe o texto e adiciona a margem que empurra o botão para a direita */
+    .fixed-cta-bar .bar-text {
+        display: block;
+        margin: 0;
+        font-size: 1em;
+        font-weight: 500;
+        color: #f1f1f1;
+        white-space: nowrap;
+        text-align: left;
+        
+        /* --- ESTA É A MUDANÇA PRINCIPAL --- */
+        margin-right: auto; /* Move o espaço flexível para DEPOIS do texto */
+    }
+
+    /* Ajusta o botão para o desktop */
+    .fixed-cta-bar .bar-cta-button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+}
+@media (max-width: 900px) { /* OU 850px, TESTE QUAL FUNCIONA MELHOR */
+    .pain-points-layout,
+    .pillar-section .container,
+    .cases-section .cases-layout-container {
+        flex-direction: column;
+        align-items: center; /* Centraliza os itens após a mudança de direção */
+    }
+
+    /* Seções de pilares: ajustar ordem da imagem para mobile */
+    .pillar-content-left .pillar-image {
+        order: 1;
+    }
+    .pillar-content-left .pillar-text {
+        order: 2;
+        text-align: center; /* Se quiser centralizar o texto também */
+    }
+
+    .pillar-content-right .pillar-image {
+        order: 1;
+    }
+    .pillar-content-right .pillar-text {
+        order: 2;
+        text-align: center; /* Se quiser centralizar o texto também */
+    }
+
+    /* O carrossel também pode precisar de ajuste se não estiver quebrando direito */
+    .before-after-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+    .carousel-item {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 0;
+    }
+    .before-image, .after-image{
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) { /* Tablet Portrait e Mobile */
@@ -1271,6 +1372,10 @@ header.scrolled .cta-button.header-cta {
         justify-content: center;
         gap: 10px;
     }
+    .main-nav ul li a {
+    font-size: 0.8em; /* Fonte um pouco menor */
+    padding: 5px;   /* Adiciona um respiro */
+    }
     .header-left {
         order: 1;
         width: 100%;
@@ -1288,26 +1393,23 @@ header.scrolled .cta-button.header-cta {
         display: block !important;
         max-width: 80px !important;
     }
-    .logo-img {
-        max-width: 80px;
-    }
 
     .hero {
         padding: 80px 20px;
         min-height: 450px;
     }
     .hero h1 {
-        font-size: 3em;
+        font-size: 2.2em;
     }
     .hero h2 {
-        font-size: 1.8em;
+        font-size: 1.3em;
     }
     .hero-subheadline {
-        font-size: 1.1em;
+        font-size: 1.0em;
     }
     .main-cta {
         padding: 15px 30px;
-        font-size: 1.1em;
+        font-size: 1.0em;
     }
     .contact-form-section form {
         grid-template-columns: 1fr;
@@ -1405,13 +1507,7 @@ header.scrolled .cta-button.header-cta {
     .pillar-content-left {
         flex-direction: column;
     }
-    .process-flow {
-        flex-direction: column;
-    }
-    .process-arrow {
-        transform: rotate(90deg);
-        margin: 20px 0;
-    }
+    
     .before-after-carousel {
         flex-direction: column;
         align-items: center;
@@ -1464,23 +1560,23 @@ header.scrolled .cta-button.header-cta {
     .fixed-cta-button:hover {
         transform: translateX(-50%) translateY(-3px);
     }
+    /* Barra CTA fixa responsiva */
     .fixed-cta-bar {
-        bottom: 15px;
-        padding: 10px 15px;
-        border-radius: 10px;
-    }
-    .fixed-cta-bar .bar-logo {
-        max-width: 40px;
+        width: auto;
     }
     .fixed-cta-bar .bar-text {
-        font-size: 0.9em;
+        display: none;
+    }
+    .fixed-cta-bar .bar-logo {
+        max-width: 45px;
     }
     .fixed-cta-bar .bar-cta-button {
-        padding: 8px 15px;
-        font-size: 0.85em;
+        padding: 8px 18px;
+        font-size: 0.9em;
     }
     .cases-section .cases-intro-content h2 {
-        font-size: 2.2em;
+        font-size: 1.8em;
+        line-height: 1.3;
     }
     .cases-grid {
         grid-template-columns: 1fr;
@@ -1504,9 +1600,7 @@ header.scrolled .cta-button.header-cta {
         font-size: 1em;
     }
     .fixed-cta-bar {
-        bottom: 10px;
-        padding: 10px;
-        border-radius: 8px;
+        padding: 8px 12px; /* Mais compacto */
     }
     .fixed-cta-button {
         bottom: 15px;
@@ -1514,6 +1608,9 @@ header.scrolled .cta-button.header-cta {
         transform: translateX(-50%);
         padding: 10px 18px;
         font-size: 0.85em;
+    }
+    .fixed-cta-bar .bar-logo {
+        max-width: 40px; /* Ainda menor se precisar */
     }
     .fixed-cta-button:hover {
         transform: translateX(-50%) translateY(-3px);
@@ -1533,17 +1630,10 @@ header.scrolled .cta-button.header-cta {
         font-size: 0.9em;
     }
     .fixed-cta-bar .bar-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    .fixed-cta-bar .bar-text {
-        font-size: 0.85em;
-        white-space: normal;
-        text-overflow: unset;
+        gap: 8px;
     }
     .fixed-cta-bar .bar-cta-button {
-        width: 100%;
-        max-width: 250px;
+        padding: 7px 15px;
+        font-size: 0.85em;
     }
 }
