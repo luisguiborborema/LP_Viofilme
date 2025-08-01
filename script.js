@@ -226,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
         handleFixedCtaVisibility(); // Executa ao carregar
     }
 
-
     // --- Lógica para Abrir/Fechar o Modal de Formulário ---
     const openFormButton = document.getElementById('openFormButton');
     const formModal = document.getElementById('formModal');
