@@ -562,6 +562,19 @@ header.scrolled .cta-button.header-cta {
     color: #458f8e; /* Cor do hover */
 }
 
+/* Para seções que ficam com fundo ESCURO no Dark Mode */
+body.dark-mode .pain-points-section .section-description,
+body.dark-mode .process-section .section-description,
+body.dark-mode .faq-section .section-description {
+    color: #e0e0e0; /* Cor cinza-claro para boa legibilidade */
+}
+
+/* Para seções que MANTÊM o fundo colorido (verde-azulado) no Dark Mode */
+body.dark-mode .pillars-intro-section .section-description,
+body.dark-mode .philosophy-section .section-description,
+body.dark-mode .contact-form-section .contact-intro .section-description {
+    color: #f1f1f1; /* Cor branca para contraste com o fundo colorido */
+}
 /* 2. Definição das cores do Dark Mode */
 body.dark-mode {
     background-color: #121212;
@@ -1945,6 +1958,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
