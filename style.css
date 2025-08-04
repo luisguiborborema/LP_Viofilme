@@ -527,6 +527,160 @@ header.scrolled .cta-button.header-cta {
     margin-top: auto;
 }
 
+/* --- ESTILOS DO DARK MODE --- */
+
+/* 1. Estilo para o botão de toggle */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: #000000; /* Cor inicial do ícone */
+    font-size: 1.5em; /* Tamanho do ícone */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    order: 2; /* Para se posicionar corretamente no mobile */
+    margin: 0 15px;
+}
+
+.dark-mode-toggle:hover {
+    color: #458f8e; /* Cor do hover */
+}
+
+/* 2. Definição das cores do Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* 3. Sobrescrevendo estilos existentes quando o .dark-mode está ativo */
+
+/* Header e Navegação */
+body.dark-mode header {
+    background-color: #1c1c1c;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+body.dark-mode .main-nav ul li a {
+    color: #e0e0e0;
+}
+body.dark-mode .main-nav ul li a:hover,
+body.dark-mode .main-nav ul li a.active {
+    color: #458f8e;
+}
+body.dark-mode .dark-mode-toggle {
+    color: #e0e0e0; /* Cor do ícone no dark mode */
+}
+body.dark-mode .hamburger-line {
+    background-color: #e0e0e0; /* Cor do menu hamburguer */
+}
+body.dark-mode .main-nav {
+    background-color: #1c1c1c; /* Fundo do menu mobile */
+}
+
+/* Hero Section */
+body.dark-mode .hero {
+    color: #f1f1f1; /* Mantém a cor do texto, mas o fundo do overlay pode ser ajustado se necessário */
+}
+body.dark-mode .hero::before {
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay um pouco mais escuro */
+}
+body.dark-mode .main-cta {
+    background-color: #f1f1f1;
+    color: #121212;
+}
+
+/* Seções Gerais e Cards */
+body.dark-mode .pain-points-section,
+body.dark-mode .pillar-section,
+body.dark-mode .process-section,
+body.dark-mode .faq-section {
+    background-color: #121212;
+}
+body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.dark-mode li {
+    color: #e0e0e0;
+}
+body.dark-mode .pain-points-section h2,
+body.dark-mode .pillar-text h2,
+body.dark-mode .process-section h2,
+body.dark-mode .cases-section h2,
+body.dark-mode .faq-section h2,
+body.dark-mode .pain-points-prompt,
+body.dark-mode .pain-points-list-container ul li:before,
+body.dark-mode .pillar-text ul li:before,
+body.dark-mode .case-item h3,
+body.dark-mode .case-item strong {
+    color: #458f8e;
+}
+body.dark-mode .process-step,
+body.dark-mode .case-item,
+body.dark-mode .faq-item,
+body.dark-mode .form-container,
+body.dark-mode .modal-content {
+    background-color: #1e1e1e;
+    border-color: #333;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+body.dark-mode .process-step i {
+    color: #458f8e;
+}
+body.dark-mode .process-step h3,
+body.dark-mode .case-item p {
+    color: #f1f1f1;
+}
+body.dark-mode .process-step p,
+body.dark-mode .faq-answer p {
+    color: #b0b0b0;
+}
+
+/* Formulários */
+body.dark-mode form label {
+    color: #f1f1f1;
+}
+body.dark-mode form input,
+body.dark-mode form select {
+    background-color: #2c2c2c;
+    border-color: #444;
+    color: #e0e0e0;
+}
+body.dark-mode form select option {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+/* FAQ */
+body.dark-mode .faq-question {
+    background-color: #2a2a2a;
+    border-bottom-color: #333;
+}
+body.dark-mode .faq-question:hover {
+    background-color: #333;
+}
+body.dark-mode .faq-toggle-icon {
+    color: #458f8e;
+}
+
+/* Footer */
+body.dark-mode .main-footer {
+    background-color: #1c1c1c;
+}
+body.dark-mode .footer-column h4,
+body.dark-mode .footer-column p,
+body.dark-mode .footer-column a,
+body.dark-mode .footer-bottom p,
+body.dark-mode .footer-bottom a {
+    color: #e0e0e0;
+}
+body.dark-mode .social-icons-footer a {
+    color: #e0e0e0;
+}
+
+/* CTA Fixo */
+body.dark-mode .fixed-cta-bar {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+body.dark-mode .fixed-cta-bar .bar-text {
+    color: #f1f1f1;
+}
+
 /* --- AJUSTES DE RESPONSIVIDADE (TABLET E DESKTOP) --- */
 
 /* Para Tablets (telas com 768px de largura ou mais) */
@@ -542,8 +696,6 @@ header.scrolled .cta-button.header-cta {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
-
 /* --- Seção de Cases --- */
 .cases-section {
     background-color: #458f8e;
@@ -1457,6 +1609,14 @@ header.scrolled .cta-button.header-cta {
     .main-nav ul li a.active {
         border-bottom: 3px solid #458f8e;
     }
+    .header-container .dark-mode-toggle {
+        display: none;
+    }
+    
+    /* Adicione uma opção dentro do menu mobile se desejar */
+    .main-nav ul {
+        /* Se quiser adicionar o toggle aqui, seria via JS */
+    }
 }
 
 @media (max-width: 768px) { /* Tablet Portrait e Mobile */
@@ -1748,5 +1908,6 @@ header.scrolled .cta-button.header-cta {
         font-size: 0.85em;
     }
 }
+
 
 
