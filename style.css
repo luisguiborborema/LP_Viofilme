@@ -688,6 +688,15 @@ body.dark-mode .footer-bottom a {
 body.dark-mode .social-icons-footer a {
     color: #e0e0e0;
 }
+/* --- Correção de Cor para o Rodapé no Dark Mode --- */
+body.dark-mode .footer-bottom {
+    color: #e0e0e0; /* Define a cor do texto para cinza-claro */
+}
+
+/* Opcional: Garante que links nessa área também mudem de cor */
+body.dark-mode .footer-bottom a {
+    color: #e0e0e0;
+}
 
 /* CTA Fixo */
 body.dark-mode .fixed-cta-bar {
@@ -1935,6 +1944,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
