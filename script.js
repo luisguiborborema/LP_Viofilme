@@ -282,33 +282,40 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-     // --- LÓGICA DO DARK MODE (NOVO) ---
+     // --- LÓGICA DO DARK MODE (REATORADA PARA DESKTOP E MOBILE) ---
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeToggleMobile = document.getElementById('darkModeToggleMobile');
     const body = document.body;
-    const moonIcon = darkModeToggle.querySelector('.fa-moon');
-
+    
+    // Seleciona os ícones de ambos os botões
+    const desktopIcon = darkModeToggle.querySelector('i');
+    const mobileIcon = darkModeToggleMobile.querySelector('i');
+    
     // Função para ativar o Dark Mode
     const enableDarkMode = () => {
         body.classList.add('dark-mode');
         localStorage.setItem('darkMode', 'enabled');
-        moonIcon.classList.remove('fa-moon');
-        moonIcon.classList.add('fa-sun'); // Troca o ícone para sol
+        // Atualiza AMBOS os ícones para sol
+        if (desktopIcon) desktopIcon.className = 'fas fa-sun';
+        if (mobileIcon) mobileIcon.className = 'fas fa-sun';
     };
-
+    
     // Função para desativar o Dark Mode
     const disableDarkMode = () => {
         body.classList.remove('dark-mode');
         localStorage.setItem('darkMode', 'disabled');
-        moonIcon.classList.remove('fa-sun');
-        moonIcon.classList.add('fa-moon'); // Troca o ícone para lua
+        // Atualiza AMBOS os ícones para lua
+        if (desktopIcon) desktopIcon.className = 'fas fa-moon';
+        if (mobileIcon) mobileIcon.className = 'fas fa-moon';
     };
-
+    
     // Verifica a preferência do usuário no carregamento da página
+    // A lógica aqui não muda, pois ela afeta o body e as funções acima cuidam dos ícones
     if (localStorage.getItem('darkMode') === 'enabled') {
         enableDarkMode();
     }
-
-    // Adiciona o evento de clique ao botão
+    
+    // Adiciona o evento de clique ao botão de DESKTOP
     darkModeToggle.addEventListener('click', () => {
         if (body.classList.contains('dark-mode')) {
             disableDarkMode();
@@ -316,6 +323,14 @@ document.addEventListener('DOMContentLoaded', function() {
             enableDarkMode();
         }
     });
-
+    
+    // Adiciona o evento de clique ao botão de MOBILE
+    darkModeToggleMobile.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
 });
+
 
