@@ -963,7 +963,7 @@ header.scrolled .cta-button.header-cta {
     align-items: center;
     flex-wrap: wrap; /* Permite que os itens quebrem a linha se não houver espaço */
     gap: 5px 12px;   /* Espaçamento vertical e horizontal entre os itens */
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: #000000;
 }
 .footer-divider{
@@ -1748,4 +1748,5 @@ header.scrolled .cta-button.header-cta {
         font-size: 0.85em;
     }
 }
+
 
