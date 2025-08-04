@@ -282,5 +282,40 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+     // --- LÓGICA DO DARK MODE (NOVO) ---
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const moonIcon = darkModeToggle.querySelector('.fa-moon');
+
+    // Função para ativar o Dark Mode
+    const enableDarkMode = () => {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+        moonIcon.classList.remove('fa-moon');
+        moonIcon.classList.add('fa-sun'); // Troca o ícone para sol
+    };
+
+    // Função para desativar o Dark Mode
+    const disableDarkMode = () => {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+        moonIcon.classList.remove('fa-sun');
+        moonIcon.classList.add('fa-moon'); // Troca o ícone para lua
+    };
+
+    // Verifica a preferência do usuário no carregamento da página
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        enableDarkMode();
+    }
+
+    // Adiciona o evento de clique ao botão
+    darkModeToggle.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
 
 });
+
