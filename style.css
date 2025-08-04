@@ -530,6 +530,20 @@ header.scrolled .cta-button.header-cta {
 /* --- ESTILOS DO DARK MODE --- */
 
 /* 1. Estilo para o botão de toggle */
+#darkModeToggleMobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000; /* Cor inicial */
+    font-family: 'Poppins', sans-serif; /* Mesma fonte dos links */
+    font-size: clamp(1.2rem, 5vw, 1.6rem); /* Mesmo tamanho de fonte dos links */
+    font-weight: 600; /* Mesmo peso dos links */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o ícone e o texto */
+    padding: 0;
+    width: 100%;
+}
 .dark-mode-toggle {
     background: none;
     border: none;
@@ -539,6 +553,9 @@ header.scrolled .cta-button.header-cta {
     transition: color 0.3s ease;
     order: 2; /* Para se posicionar corretamente no mobile */
     margin: 0 15px;
+}
+.dark-mode-toggle-mobile-li {
+    display: none;
 }
 
 .dark-mode-toggle:hover {
@@ -1609,16 +1626,26 @@ body.dark-mode .fixed-cta-bar .bar-text {
     .main-nav ul li a.active {
         border-bottom: 3px solid #458f8e;
     }
-    .header-container .dark-mode-toggle {
-        display: none;
-    }
     
     /* Adicione uma opção dentro do menu mobile se desejar */
     .main-nav ul {
         /* Se quiser adicionar o toggle aqui, seria via JS */
     }
+    /* Esconde o botão de toggle do HEADER em telas pequenas */
+    #darkModeToggle {
+        display: none;
+    }
+
+    /* Mostra o botão de toggle do MENU em telas pequenas */
+    .dark-mode-toggle-mobile-li {
+        display: list-item;
+    }
 }
 
+/* 4. Garante que a cor do botão mobile também mude no dark mode */
+body.dark-mode #darkModeToggleMobile {
+    color: #e0e0e0;
+}
 @media (max-width: 768px) { /* Tablet Portrait e Mobile */
     .header-container {
         flex-direction: row;
@@ -1908,6 +1935,7 @@ body.dark-mode .fixed-cta-bar .bar-text {
         font-size: 0.85em;
     }
 }
+
 
 
 
