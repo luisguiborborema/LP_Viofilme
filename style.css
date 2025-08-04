@@ -617,7 +617,6 @@ body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.dark-mode li {
 body.dark-mode .pain-points-section h2,
 body.dark-mode .pillar-text h2,
 body.dark-mode .process-section h2,
-body.dark-mode .cases-section h2,
 body.dark-mode .faq-section h2,
 body.dark-mode .pain-points-prompt,
 body.dark-mode .pain-points-list-container ul li:before,
@@ -646,7 +645,9 @@ body.dark-mode .process-step p,
 body.dark-mode .faq-answer p {
     color: #b0b0b0;
 }
-
+body.dark-mode .cases-section h2 {
+    color: #f1f1f1;
+}
 /* Formulários */
 body.dark-mode form label {
     color: #f1f1f1;
@@ -1944,6 +1945,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
