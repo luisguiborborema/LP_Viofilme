@@ -720,6 +720,13 @@ body.dark-mode .fixed-cta-bar {
 body.dark-mode .fixed-cta-bar .bar-text {
     color: #f1f1f1;
 }
+body.dark-mode .footer-email a:hover {
+    color: #458f8e; /* Cor verde-azulado para o e-mail no hover */
+}
+
+body.dark-mode .footer-phone a:hover {
+    color: #25d366; /* Cor verde para o WhatsApp no hover */
+}
 
 /* --- AJUSTES DE RESPONSIVIDADE (TABLET E DESKTOP) --- */
 
@@ -1958,6 +1965,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
