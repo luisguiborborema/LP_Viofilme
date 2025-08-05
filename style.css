@@ -737,6 +737,12 @@ body.dark-mode .footer-phone a:hover {
     }
 }
 
+/* Impede a quebra de linha do WhatsApp no rodapé em telas grandes */
+@media (min-width: 769px) {
+    .footer-phone {
+        white-space: nowrap;
+    }
+}
 /* Para Desktops (telas com 992px de largura ou mais) */
 @media (min-width: 992px) {
     .process-flow {
@@ -1965,6 +1971,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
