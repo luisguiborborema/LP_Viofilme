@@ -1162,7 +1162,7 @@ body.dark-mode .footer-phone a:hover {
     align-items: center;
     flex-wrap: wrap; /* Permite que os itens quebrem a linha se não houver espaço */
     gap: 5px 12px;   /* Espaçamento vertical e horizontal entre os itens */
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: #000000;
 }
 .footer-divider{
@@ -1965,6 +1965,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
