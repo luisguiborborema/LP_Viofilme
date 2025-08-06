@@ -1522,9 +1522,6 @@ body.dark-mode .footer-phone a:hover {
         gap: 15px;
     }
     
-    .cases-grid {
-        grid-template-columns: 1fr;
-    }
     .carousel-item {
         max-width: 350px;
     }
@@ -1971,6 +1968,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
