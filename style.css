@@ -1814,7 +1814,7 @@ body.dark-mode #darkModeToggleMobile {
     }
     .pillar-image {
         order: 1;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
     .pillar-text ul li {
         text-align: left;
@@ -1971,6 +1971,7 @@ body.dark-mode #darkModeToggleMobile {
         font-size: 0.85em;
     }
 }
+
 
 
 
