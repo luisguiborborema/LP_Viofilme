@@ -273,4 +273,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }); // Fim do DOMContentLoaded
 
-// CORREÇÃO: A chave '}' extra que estava aqui foi removida.
